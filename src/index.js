@@ -1,17 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
+// 1.) import the above
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// 2.) setup a function (called component in react).
+// Function must begin with a capital letter for react to recognise it
+function Greeting() {
+  return <h1>This is Allen and this is my first component</h1>;
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// 3.) import react-dom will allow us to inject the function into the 'root' element in the index.html 
+// we call .render and pass the function and document.getElementById('root')
+ReactDom.render(<Greeting />, document.getElementById('root'));
