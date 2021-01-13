@@ -1,4 +1,4 @@
-# React Course
+# React Course that I'm following
 
 https://youtu.be/4UZrsTqkcW4
 
