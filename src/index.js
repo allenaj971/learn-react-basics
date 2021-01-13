@@ -45,8 +45,12 @@ const Book = () => {
 const Image = () => (
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/447px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg" />
 );
-
-const Title = () => <h1>Some random book</h1>;
+// adding styling through jsx.
+const Title = () => (
+  <h1 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}>
+    Some random book
+  </h1>
+);
 
 // 3.) import react-dom will allow us to inject the function into the 'root' element in the index.html
 // we call .render and pass the function and document.getElementById('root')
