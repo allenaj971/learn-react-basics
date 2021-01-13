@@ -1,5 +1,8 @@
 import React from "react";
 import ReactDom from "react-dom";
+// how to import CSS
+import "./index.css";
+
 // 1.) import the above
 
 // 2.) setup a function (called component in react).
@@ -18,7 +21,13 @@ function Booklist() {
   // className, not class
   // close every element + format! (generally prettier takes care of it)
   return (
-    <section>
+    // add classname to elements so that they may be referenced in the index.css file
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
       <Book />
     </section>
   );
@@ -26,7 +35,7 @@ function Booklist() {
 
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <Image />
       <Title />
     </article>
@@ -34,10 +43,10 @@ const Book = () => {
 };
 
 const Image = () => (
-  <img src="https://tesla-cdn.thron.com/delivery/public/image/tesla/35d15221-0a5f-4dce-b484-a4db67b81dd2/bvlatuR/std/0x0/model-s@2x" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/447px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg" />
 );
 
-const Title = () => <h1>Tesla Model S</h1>;
+const Title = () => <h1>Some random book</h1>;
 
 // 3.) import react-dom will allow us to inject the function into the 'root' element in the index.html
 // we call .render and pass the function and document.getElementById('root')
