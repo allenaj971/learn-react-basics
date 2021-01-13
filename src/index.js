@@ -53,25 +53,27 @@ function Booklist() {
 // adding styling through jsx. jsx css or imported libraries overwrites any styling applied
 // in index.css
 
-const Book = (props) => {
+// can destruct directly inside function parameter
+const Book = ({ img, title, job }) => {
+  // instead of having to type in props.'xyz' variable, we can deconstruct it here
+  // const { img, title, job } = props;
   // props is the properties we want to pass into our component
-  console.log(props);
   // referencing variables inside html, use {'insert_variable_here'}
 
   return (
     <article className="book">
-      <img src={props.img} alt="" />
+      <img src={img} alt="" />
       <h1
         style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}
       >
-        {props.title.toLocaleUpperCase()}
+        {title.toLocaleUpperCase()}
       </h1>
       {/* <p>{let x = 6}</p> */}
       {/* The above doesn't work, JSX requires that it return a value, which the above
       does not  */}
       <p>{6 + 6}</p>
       {/* When we pass props, to use it, we call props.'property' */}
-      <p>{props.job}</p>
+      <p>{job}</p>
     </article>
   );
 };
