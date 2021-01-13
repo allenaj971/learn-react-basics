@@ -67,8 +67,23 @@ const Book = (props) => {
   // props is the properties we want to pass into our component
   // referencing variables inside html, use {'insert_variable_here'}
 
+  // The below is a function defining what happens when the user clicks the example button
+  const clickHandler = () => {
+    alert("hello world");
+  };
+
+  const example = (job) => {
+    console.log(job);
+  };
+
   return (
-    <article className="book">
+    <article
+      className="book"
+      // Here we are using mouse over element to console log title
+      onMouseOver={() => {
+        console.log(title);
+      }}
+    >
       <img src={img} alt="" />
       <h1
         style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}
@@ -80,9 +95,17 @@ const Book = (props) => {
       does not */}
       <p>{6 + 6}</p>
       {/* When we pass props, to use it, we call props.'property' */}
-      <p>{job}</p>
+      {/* We can also use inline func to handle click events */}
+      <p onClick={() => alert(job)}>{job}</p>
       {/* how we access children props */}
       {/* {children} */}
+      <button type="button" onClick={clickHandler}>
+        example
+      </button>
+      {/* if we are passing a variable into the func, we use inline func to call the func with the parameter */}
+      <button type="button" onClick={() => example(job)}>
+        another boi
+      </button>
     </article>
   );
 };
