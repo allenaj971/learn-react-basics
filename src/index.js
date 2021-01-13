@@ -28,10 +28,10 @@ const books = [
 // Generally, we have a main entry function (naming convention is App but here
 // we are calling it Greeting), then we include the components we write below it or in
 // other files and call it using JSX.
-const names = ["john", "peter", "susan"];
-const newName = names.map((name) => {
-  return <h1>{name}</h1>;
-});
+// const names = ["john", "peter", "susan"];
+// const newName = names.map((name) => {
+//   return <h1>{name}</h1>;
+// });
 
 function Booklist() {
   // JSX Rules
@@ -45,21 +45,29 @@ function Booklist() {
     <section className="booklist">
       {/* To pass properties to a component, when we call it, we pass a key and value */}
       {/* We must import it here if we want to use it in our component */}
-      {newName}
+      {/* Here we are mapping and deconstructing the book elements to pass them into the book component. */}
+      {books.map((book) => {
+        return (
+          <div>
+            <Book book={book} />
+          </div>
+        );
+      })}
       {/* we can pass children elements inside component brackets */}
     </section>
   );
 }
 // adding styling through jsx. jsx css or imported libraries overwrites any styling applied in index.css
 
-// can destruct directly inside function parameter
+// can destruct directly inside function parameter (if not a list { img, title, job, children })
 // we can pass children (btw, reserved keyword) props into component in the destruct
-const Book = ({ img, title, job, children }) => {
+const Book = (props) => {
   // instead of having to type in props.'xyz' variable, we can deconstruct it here
-  // const { img, title, job } = props;
+  // destructing the book prop
+  const { img, title, job } = props.book;
   // props is the properties we want to pass into our component
   // referencing variables inside html, use {'insert_variable_here'}
-  console.log(children);
+
   return (
     <article className="book">
       <img src={img} alt="" />
@@ -75,7 +83,7 @@ const Book = ({ img, title, job, children }) => {
       {/* When we pass props, to use it, we call props.'property' */}
       <p>{job}</p>
       {/* how we access children props */}
-      {children}
+      {/* {children} */}
     </article>
   );
 };
